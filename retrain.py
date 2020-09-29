@@ -19,11 +19,11 @@ def create_train_tf_record(example):
   encoded_image_data = example.encoded_jpg() # Encoded image bytes
   image_format = b'jpeg' # b'jpeg' or b'png'
 
-  xmins = [example.box[0][0]] # List of normalized left x coordinates in bounding box (1 per box)
-  xmaxs = [example.box[1][0]] # List of normalized right x coordinates in bounding box
+  xmins = [example.box[0][0]/300] # List of normalized left x coordinates in bounding box (1 per box)
+  xmaxs = [example.box[1][0]/300] # List of normalized right x coordinates in bounding box
              # (1 per box)
-  ymins = [example.box[0][1]] # List of normalized top y coordinates in bounding box (1 per box)
-  ymaxs = [example.box[1][1]] # List of normalized bottom y coordinates in bounding box
+  ymins = [example.box[0][1]/300] # List of normalized top y coordinates in bounding box (1 per box)
+  ymaxs = [example.box[1][1]/300] # List of normalized bottom y coordinates in bounding box
              # (1 per box)
   classes_text = [b'train'] # List of string class name of bounding box (1 per box)
   classes = [6] # List of integer class id of bounding box (1 per box)
